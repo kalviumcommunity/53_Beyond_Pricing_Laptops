@@ -1,6 +1,6 @@
 var express= require('express')
-var app = express()
-var port = 3120
+const app = express()
+const port = 3120
 app.get('/ping',(req,res)=>{
     res.send("pong")
 })
