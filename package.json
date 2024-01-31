@@ -1,0 +1,11 @@
+{
+  "name": "53_beyond_pricing_laptops",
+  "version": "1.0.0",
+  "description": "53_beyond_pricing_laptops",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
