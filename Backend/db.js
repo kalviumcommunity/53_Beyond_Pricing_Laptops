@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
-const db = "mongodb+srv://Himanshu:MongoDB@cluster0.srld35z.mongodb.net/Laptops Data"
+require('dotenv').config();
+const db = process.env.database
 
 const startDb= async () =>{
     try{
