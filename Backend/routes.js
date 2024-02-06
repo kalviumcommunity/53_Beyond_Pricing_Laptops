@@ -1,6 +1,7 @@
 var express = require('express')
 var app = express()
 var {startServer,closeServer} = require('./server')
+var {isConnected} = require('./db')
 var port =3350;
 const Products = require('./schema')
 const bodyParser = require('body-parser')//it is used to to collect any type of data and convert them in a readable json file
