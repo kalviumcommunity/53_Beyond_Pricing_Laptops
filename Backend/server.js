@@ -28,7 +28,6 @@ const closeServer = async () => {
         process.exit(1)
     }
 };
-
 // Handling process termination signals
 process.on('SIGINT', closeServer);
 
