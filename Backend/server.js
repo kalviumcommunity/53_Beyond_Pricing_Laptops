@@ -1,23 +1,15 @@
 var express = require('express');
 const app = express();
 const { startDb, closeDb, isConnected } = require('./db');
+const Products = require('./schema')
+const bodyParser = require('body-parser')
+app.use(bodyParser.json()) 
 const port = 3130;
 
 // Start server and database connection
 const startServer = async () => {
     try {
         await startDb();
-        app.get('/', (req, res) => {
-            res.send(`Database connection status: ${isConnected() ? "Connection successful" : "Connection Unsuccessful"}`);
-        });
-
-        app.get('/ping', (req, res) => {
-            res.send("pong");
-        });
-
-        app.listen(port, () => {
-            console.log("Server is running on port 3130...");
-        });
     } catch (err) {
         console.log("Error starting server:", err);
     }
@@ -40,4 +32,4 @@ const closeServer = async () => {
 // Handling process termination signals
 process.on('SIGINT', closeServer);
 
-
+module.exports={startServer,closeServer}
