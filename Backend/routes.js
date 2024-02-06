@@ -22,6 +22,14 @@ app.get('/', (req, res) => {
 app.get('/ping', (req, res) => {
     res.send("pong");
 });
+app.get('/api/Laptops', async(req,res)=>{
+    try {
+        const AllLaptopsData = await Products.find()
+        res.json({Product:AllLaptopsData})
+    } catch (error) {
+        
+    }
+})
 app.post('/Laptops', async(req,res)=>{
     try{
         const data = req.body
