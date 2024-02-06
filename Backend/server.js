@@ -12,6 +12,11 @@ app.use(express.json())
 const startServer = async () => {
     try {
         await startDb();
+        app.use('/',Router)
+        app.use(express.json())
+        app.listen(port, () => {
+            console.log(`Server is running on port ${port}`);
+        });
     } catch (err) {
         console.log("Error starting server:", err);
     }
