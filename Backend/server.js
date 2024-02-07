@@ -9,11 +9,11 @@ const Router = require('./routes')
 
 app.use(express.json())
 // Start server and database connection
-app.use('/',Router)
-app.use(express.json())
 const startServer = async () => {
     try {
         await startDb();
+        app.use('/',Router)
+        app.use(express.json())
         app.listen(port, () => {
             console.log(`Server is running on port ${port}`);
         });
