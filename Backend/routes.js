@@ -1,8 +1,7 @@
 var express = require('express')
 var app = express()
 var {startServer,closeServer} = require('./server')
-const { startDb, closeDb, isConnected } = require('./db');
-// var {isConnected} = require('./db')
+var {isConnected} = require('./db')
 const router = express.Router()
 // var port =3350;
 const Products = require('./schema')
