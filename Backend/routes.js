@@ -3,7 +3,6 @@ var app = express()
 var {startServer,closeServer} = require('./server')
 var {isConnected} = require('./db')
 const router = express.Router()
-// var port =3350;
 const Products = require('./schema')
 const bodyParser = require('body-parser')//it is used to to collect any type of data and convert them in a readable json file
 app.use(bodyParser.json()) // converts the all recieved data in json form
@@ -71,8 +70,5 @@ router.delete('/Laptops/:id', async(req,res)=>{
     }
 })
 
-// app.listen(port,()=>{
-//     console.log(`server is running on port ${port}`);
-// })
 
 module.exports=router;
