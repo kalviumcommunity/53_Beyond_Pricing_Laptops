@@ -1,9 +1,10 @@
 var express = require('express')
 var app = express()
 var {startServer,closeServer} = require('./server')
-var {isConnected} = require('./db')
+const { startDb, closeDb, isConnected } = require('./db');
+// var {isConnected} = require('./db')
 const router = express.Router()
-var port =3350;
+// var port =3350;
 const Products = require('./schema')
 const bodyParser = require('body-parser')//it is used to to collect any type of data and convert them in a readable json file
 app.use(bodyParser.json()) // converts the all recieved data in json form
@@ -24,7 +25,7 @@ router.get('/', (req, res) => {
 router.get('/ping', (req, res) => {
     res.send("pong");
 });
-router.get('/api/Laptops', async(req,res)=>{
+router.get('/Laptops', async(req,res)=>{
     try {
         const AllLaptopsData = await Products.find()
         res.json({Product:AllLaptopsData})
@@ -71,8 +72,8 @@ router.delete('/Laptops/:id', async(req,res)=>{
     }
 })
 
-app.listen(port,()=>{
-    console.log(`server is running on port ${port}`);
-})
+// app.listen(port,()=>{
+//     console.log(`server is running on port ${port}`);
+// })
 
 module.exports=router;
