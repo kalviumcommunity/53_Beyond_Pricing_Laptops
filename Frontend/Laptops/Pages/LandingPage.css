@@ -1,0 +1,76 @@
+.body-img{
+    margin: 7% 10% 10% 14%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid gray;
+    border-radius: 20px;
+    width:900px;
+    margin-right: 10%;
+    align-items: center;
+    height: 480px;
+}
+.body-img-laptop{
+    width: 350px;
+    align-self: center;
+    cursor: pointer;
+}
+.footer {
+    padding: 2%;
+    background-color: black;
+    color: white;
+}
+.fb:hover{
+    cursor: pointer;
+}
+.social-media{
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-around;
+    margin-left: 65%;
+}
+.foot-desc{
+    width: 48%;
+    margin-left: 5%;
+    margin-top: -2%;
+}
+.footer-mainText{
+    font-size: 26px;
+}
+.body{
+    padding: 2rem;
+    margin-left: 7.5%;
+}
+.hr{
+    margin-top: 2%;
+    background-color: black;
+    height: 2px;
+    width: 111%;
+    margin-left: -9.7%;
+}
+.footer-main-text{
+    display: flex;
+    justify-content: center;
+}
+.leftArrow{
+    position: absolute;
+    left: 23.5%;
+    cursor: pointer;
+}
+.rightArrow{
+    position: absolute;
+    right: 21%;
+    rotate: 180deg;
+    cursor: pointer;
+}
+.LaptopsName{
+    font-size: 30px;
+    font-weight: 600;
+}
+.body-image-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 450px;
+    justify-content: space-between;
+}
