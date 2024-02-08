@@ -6,7 +6,6 @@ import React, { useEffect, useState } from 'react'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowBackIos'
 import ArrowBackIos from '@mui/icons-material/ArrowBackIos'
 import './LandingPage.css'
-
 function LandingPage(props) {
   const [val,setvalue] = useState(0);
   useEffect(() => {
