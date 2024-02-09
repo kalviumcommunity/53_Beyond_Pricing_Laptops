@@ -1,14 +1,14 @@
 import './App.css'
 import Linkings from '../routes/Routes'
-// import Fetchdata from '../Pages/Fetchdata'
+import Fetchdata from '../Pages/Fetchdata'
 
 
 function App() {
 
   return (
     <>
-      <Linkings/>
-      {/* <Fetchdata/> */}
+      {/* <Linkings/> */}
+      <Fetchdata/>
       
     </>
   )
