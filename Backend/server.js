@@ -6,7 +6,9 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json()) 
 const port = 3130;
 const Router = require('./routes')
+var cors = require('cor')
 
+app.use(cors())
 app.use(express.json())
 // Start server and database connection
 const startServer = async () => {
