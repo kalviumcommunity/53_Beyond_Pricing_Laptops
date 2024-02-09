@@ -1,0 +1,23 @@
+.footer-main-text{
+    display: flex;
+    justify-content: center;
+}
+.foot-desc{
+    width: 48%;
+    margin-left: 5%;
+    margin-top: -2%;
+}
+.footer-mainText{
+    font-size: 26px;
+}
+.social-media{
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-around;
+    margin-left: 65%;
+}
+.footer {
+    padding: 2%;
+    background-color: black;
+    color: white;
+}

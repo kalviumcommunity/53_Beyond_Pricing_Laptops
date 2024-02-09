@@ -1,12 +1,11 @@
 import './App.css'
-import LandingPage from '../Pages/LandingPage'
-import images from '../Laptops_Images_data/ImageData'
+import Linkings from '../routes/Routes'
 
 function App() {
 
   return (
     <>
-      <LandingPage data={images}/>
+      <Linkings/>
     </>
   )
 }

@@ -15,31 +15,15 @@
     align-self: center;
     cursor: pointer;
 }
-.footer {
-    padding: 2%;
-    background-color: black;
-    color: white;
-}
+
 .fb:hover{
     cursor: pointer;
 }
-.social-media{
-    display: flex;
-    margin-top: 30px;
-    justify-content: space-around;
-    margin-left: 65%;
-}
-.foot-desc{
-    width: 48%;
-    margin-left: 5%;
-    margin-top: -2%;
-}
-.footer-mainText{
-    font-size: 26px;
-}
+
+
 .body{
     padding: 2rem;
-    margin-left: 7.5%;
+    margin-left: 6%;
 }
 .hr{
     margin-top: 2%;
@@ -48,10 +32,7 @@
     width: 111%;
     margin-left: -9.7%;
 }
-.footer-main-text{
-    display: flex;
-    justify-content: center;
-}
+
 .leftArrow{
     position: absolute;
     left: 23.5%;
