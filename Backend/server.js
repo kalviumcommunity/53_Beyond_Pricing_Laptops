@@ -1,12 +1,12 @@
 var express = require('express');
 const app = express();
 const { startDb, closeDb, isConnected } = require('./db');
-const cors = require('cors')
 const Products = require('./schema')
 const bodyParser = require('body-parser')
 app.use(bodyParser.json()) 
 const port = 3130;
 const Router = require('./routes')
+var cors = require('cor')
 
 app.use(cors())
 app.use(express.json())
