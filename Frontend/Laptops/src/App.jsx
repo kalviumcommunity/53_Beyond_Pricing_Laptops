@@ -7,8 +7,8 @@ function App() {
 
   return (
     <>
-      {/* <Linkings/> */}
-      <Fetchdata/>
+      <Linkings/>
+      {/* <Fetchdata/> */}
       
     </>
   )

@@ -27,6 +27,11 @@ function Navbar() {
                             About Us
                         </Button> 
                     </Link>
+                    <Link to='/add'>
+                        <Button colorScheme="yellow" variant="solid">
+                            Add Data
+                        </Button> 
+                    </Link>
                 </Stack>
                 <div className="hr"></div>
             </div>
