@@ -31,6 +31,18 @@ router.get('/Laptops', async(req,res)=>{
         
     }
 })
+router.get('/Laptops/:id', (req,res)=>{
+    const id = req.params.id
+    Products.findById({_id:id})
+    .then(result=>res.json(result))
+    .catch(err=>console.log(err))
+})
+router.put('/UpdateUser/:id', (req,res)=>{
+    const id=req.params.id
+    Products.findByIdAndUpdate({_id:id}, {Name: req.body.Name, image: req.body.image, RAM_GB:req.body.RAM_GB, ROM_GB: req.body.ROM_GB, RAM_Type:req.body.RAM_Type, ROM_Type:req.body.ROM_Type, Battery_hrs:req.body.Battery_hrs, Operating_System:req.body.Operating_System, Price:req.body.Price, Review:req.body.Review})
+    .then(users=>res.json(users))
+    .catch(err=>console.log(err))
+})
 router.post('/Laptops', async(req,res)=>{
     try{
         const data = req.body
