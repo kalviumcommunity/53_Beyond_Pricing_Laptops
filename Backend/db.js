@@ -4,7 +4,7 @@ const db = process.env.database
 
 const startDb= async () =>{
     try{
-        await mongoose.connect(db)
+        await mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
         console.log("connection successful to Database");
     }catch(err){
         console.log("connection Error");
