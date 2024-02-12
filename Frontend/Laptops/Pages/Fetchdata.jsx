@@ -8,11 +8,18 @@ function Fetchdata() {
     useEffect(() => {
         axios.get("https://five3-beyond-pricing-laptops.onrender.com/Laptops")
         .then(res=>{setData(res.data.Product)
-        // console.log(res.data.Product)
         })
         .catch(err=>console.log(err))
     }, [])
     console.log(data);
+    const handleDelete=(id)=>{
+        axios.delete(`https://five3-beyond-pricing-laptops.onrender.com/Laptops/${id}`)
+        .then(res=>{
+            console.log(res)
+            window.location.reload()
+        })
+        .catch(err=>console.log(err))
+    }
   return (
     <>
         <Navbar/>
@@ -32,6 +39,7 @@ function Fetchdata() {
                             <li>{e.Review}</li>
                             <br />
                             <Link key={`edit-${e._id}`} to={`/edit/${e._id}`}> <button style={{background:"yellow", border:"2px solid black", borderRadius:"6px"}}>Edit Data</button></Link>
+                            <button onClick={()=>handleDelete(e._id)} style={{color:"white",background:"red", border:"2px solid black", borderRadius:"6px"}}>DELETE</button>
                         </div>
                     )
                 })
