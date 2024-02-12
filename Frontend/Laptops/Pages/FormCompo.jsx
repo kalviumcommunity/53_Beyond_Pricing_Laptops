@@ -15,7 +15,7 @@ function FormCompo() {
   const [Operating_System, setOperating] = useState('');
   const [Price, setPrice] = useState('');
   const [Review, setReview] = useState('');
-  // const [Second, setSecond]=useState('')
+
   const navigate = useNavigate();
 
   const Submit = (e) => {
