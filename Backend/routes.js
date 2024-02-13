@@ -15,9 +15,10 @@ const Joi_schema= ((req,res,next)=>{
     });
     if(error){
         res.status(400).send(error.details)
+    }else{
+        res.send("data send successfully")
+        next()
     }
-    res.send("data send successfully")
-    next()
 })
 
 var LaptopData = [
