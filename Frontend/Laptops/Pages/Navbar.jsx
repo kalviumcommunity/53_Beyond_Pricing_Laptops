@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, ButtonGroup, HStack, Input, Stack, Tooltip} from '@chakra-ui/react'
 import { MdCall} from 'react-icons/md'
 import { Link } from 'react-router-dom'
 import Products from "./Products";
 import './Navbar.css'
+import { Appcontext } from "../Usecontext/Parentcontext";
 function Navbar() {
+    const{login,isLogin}=useContext(Appcontext)
     return (
         <div>
             <div className="body">
@@ -25,13 +27,25 @@ function Navbar() {
                     <Link to='/about'>
                         <Button colorScheme="pink" variant="solid">
                             About Us
-                        </Button> 
+                        </Button>
                     </Link>
                     <Link to='/add'>
                         <Button colorScheme="yellow" variant="solid">
                             Add Data
-                        </Button> 
+                        </Button>
                     </Link>
+                    {
+                        !login ?
+                            <Link to={'/Login'}>
+                                <Button>
+                                    Login
+                                </Button>
+                            </Link>
+                            :
+                            <Link to={'/Logout'}>
+                                <Button>Logout</Button>
+                            </Link>
+                    }
                 </Stack>
                 <div className="hr"></div>
             </div>

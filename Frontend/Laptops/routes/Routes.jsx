@@ -7,6 +7,8 @@ import Aboutus from '../Pages/Aboutus'
 import FormCompo from '../Pages/FormCompo'
 import Fetchdata from '../Pages/Fetchdata'
 import EditData from '../Pages/EditData'
+import Login from '../Pages/Login'
+import Logout from '../Pages/Logout'
 
 function Linkings() {
   return (
@@ -17,6 +19,8 @@ function Linkings() {
         <Route path='/add' element={<FormCompo/>} />
         <Route path='/data' element={<Fetchdata/>} />
         <Route path='/edit/:id' element={<EditData/>} />
+        <Route path='/Login' element={<Login/>} />
+        <Route path='/Logout' element={<Logout/>} />
     </Routes>
   )
 }
