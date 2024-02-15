@@ -4,11 +4,14 @@ var {startServer,closeServer} = require('./server')
 var {isConnected} = require('./db')
 const router = express.Router()
 const joi_model= require('./joi')
+const UsersModel = require('./loginSchema')
+const cookies = require('cookie-parser')
+const bcrypt = require('bcryptjs')
 const Products = require('./schema')
 const bodyParser = require('body-parser')//it is used to to collect any type of data and convert them in a readable json file
 app.use(bodyParser.json()) // converts the all recieved data in json form
 app.use(express.json())
-
+app.use(cookies())
 const Joi_schema= ((req,res,next)=>{
     const { error } = joi_model.validate(req.body,{
         abortEarly:false,
@@ -26,6 +29,53 @@ var LaptopData = [
     { id: 2, brand: 'HP', model: 'Spectre x360' },
     { id: 3, brand: 'Lenovo', model: 'ThinkPad X1 Carbon' },
 ]
+
+// practice code and can be deleted after the work---
+
+router.post('/register',async (req,res)=>{
+    try {
+        const {username, email, password} = req.body
+        const userExist = await UsersModel.findOne({email})
+        if(userExist){
+            res.status(401).json({message:"User Already Exist"})
+        }
+        else{
+            const new_user= await UsersModel.create({username, email, password})
+            res.status(200).json({msg: new_user, token: await new_user.generateToken(), userId: new_user._id.toString() })
+        }
+    } catch (error) {
+        res.status(400).json({message:"Page not found"})
+    }
+})
+
+
+router.post('/login', async(req,res)=>{
+    try {
+        const {email, password} = req.body
+        const userExist = await UsersModel.findOne({email})
+        if(!userExist){
+            return res.status(401).json("user not registered")
+        }
+        // const isPasswordValid = await bcrypt.compare(password, userExist.password)
+        const isPasswordValid = await userExist.comparePassword(password);
+        if(isPasswordValid){
+            res.status(200).json({
+                msg:"Login successful",
+                token: await userExist.generateToken(),
+                userId: userExist._id.toString()
+            })
+        }else{
+            res.status(401).json({message:"invalid credentials"})
+        }
+    } catch (error) {
+        res.status(400).json("Page not found")
+    }
+})
+
+
+
+
+
 router.get('/LaptopsData',(req,res)=>{
     res.send(LaptopData)
 })
@@ -40,7 +90,7 @@ router.get('/Laptops', async(req,res)=>{
         const AllLaptopsData = await Products.find()
         res.json({Product:AllLaptopsData})
     } catch (error) {
-        
+        res.json(error)
     }
 })
 router.get('/Laptops/:id', (req,res)=>{
