@@ -2,11 +2,14 @@ import React, { useContext } from "react";
 import { Button, ButtonGroup, HStack, Input, Stack, Tooltip} from '@chakra-ui/react'
 import { MdCall} from 'react-icons/md'
 import { Link } from 'react-router-dom'
-import Products from "./Products";
 import './Navbar.css'
 import { Appcontext } from "../Usecontext/Parentcontext";
 function Navbar() {
-    const{login,isLogin}=useContext(Appcontext)
+    const{login,isLogin} = useContext(Appcontext)
+    const Log=()=>{
+        isLogin(false)
+        window.location.reload()
+    }
     return (
         <div>
             <div className="body">
@@ -34,18 +37,14 @@ function Navbar() {
                             Add Data
                         </Button>
                     </Link>
-                    {
-                        !login ?
                             <Link to={'/Login'}>
                                 <Button>
                                     Login
                                 </Button>
                             </Link>
-                            :
                             <Link to={'/Logout'}>
-                                <Button>Logout</Button>
+                                <Button onClick={Log}>Logout</Button>                            
                             </Link>
-                    }
                 </Stack>
                 <div className="hr"></div>
             </div>
