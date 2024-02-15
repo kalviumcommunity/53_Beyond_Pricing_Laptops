@@ -14,6 +14,7 @@ function Login() {
         email: "",
         password: "",
     })
+    const URL = "http://localhost:3130/register"
     const [errorMessage, setErrorMessage] = useState('');
     const Navigate = useNavigate()
 
@@ -34,7 +35,7 @@ function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(data);
-        axios.post("http://localhost:3130/register", {username, email, password})
+        axios.post(URL, {username, email, password})
         .then(res=>{console.log(res.data)
         Navigate('/')
         isLogin(!login)
@@ -42,7 +43,25 @@ function Login() {
         Cookies.set('token', res.data.token, {expires:30})
         // storeTokenInCk(res.data.token)
         })
-        .catch(err=>console.log(err))
+        .catch(err => {
+            console.log(err);
+            if (err.response) {
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                console.log(err.response.data);
+                console.log(err.response.status);
+                console.log(err.response.headers);
+                setErrorMessage(err.response.data.message); // Set error message from server response
+            } else if (err.request) {
+                // The request was made but no response was received
+                console.log(err.request);
+                setErrorMessage('No response received from server');
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log('Error', err.message);
+                setErrorMessage('An unexpected error occurred');
+            }
+        });
     };
 
     return (
