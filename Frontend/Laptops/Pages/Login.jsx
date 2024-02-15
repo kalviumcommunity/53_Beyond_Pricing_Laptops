@@ -4,36 +4,45 @@ import { Input, InputGroup, InputRightElement, Button, FormControl, FormLabel, F
 import axios from 'axios'; // Import axios for making HTTP requests
 import { useNavigate } from 'react-router-dom';
 import { Appcontext } from '../Usecontext/Parentcontext';
+import Cookies from 'js-cookie'
 
 function Login() {
-    const{login,isLogin}= useContext(Appcontext)
+    const{login,isLogin}=useContext(Appcontext)
     const [show, setShow] = useState(false);
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [data, isData] = useState({
+        username: "",
+        email: "",
+        password: "",
+    })
     const [errorMessage, setErrorMessage] = useState('');
     const Navigate = useNavigate()
 
     const handleClick = () => setShow(!show);
 
-    const handleEmailChange = (e) => setEmail(e.target.value);
-    const handlePasswordChange = (e) => setPassword(e.target.value);
 
+    const handleChange = (e) => {
+        let name = e.target.name
+        let value = e.target.value
+        isData({
+            ...data,
+            [name]: value,
+        })
+    }
+    var username = data.username
+    var email = data.email
+    var password = data.password
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        try {
-            const response = await axios.post('https://five3-beyond-pricing-laptops.onrender.com/Login', { username: email, password });
-            console.log(response.data); // Do something with the response, like redirecting to another page
-            isLogin(true)
-            Navigate('/')
-
-        } catch (error) {
-            if (error.response) {
-                setErrorMessage(error.response.data.message);
-            } else {
-                setErrorMessage('An unexpected error occurred.');
-            }
-        }
+        console.log(data);
+        axios.post("http://localhost:3130/register", {username, email, password})
+        .then(res=>{console.log(res.data)
+        Navigate('/')
+        isLogin(!login)
+        // localStorage.setItem('token', res.data.token)
+        Cookies.set('token', res.data.token, {expires:30})
+        // storeTokenInCk(res.data.token)
+        })
+        .catch(err=>console.log(err))
     };
 
     return (
@@ -41,8 +50,12 @@ function Login() {
             <Navbar />
             <form onSubmit={handleSubmit}>
                 <FormControl>
+                    <FormLabel>username</FormLabel>
+                    <Input type='text' name='username' value={data.username} onChange={handleChange} />
+                </FormControl>
+                <FormControl>
                     <FormLabel>Email</FormLabel>
-                    <Input type='email' value={email} onChange={handleEmailChange} />
+                    <Input type='email' name='email' value={data.email} onChange={handleChange} />
                 </FormControl>
                 <FormControl mt={4}>
                     <FormLabel>Password</FormLabel>
@@ -51,8 +64,9 @@ function Login() {
                             pr='4.5rem'
                             type={show ? 'text' : 'password'}
                             placeholder='Enter password'
-                            value={password}
-                            onChange={handlePasswordChange}
+                            value={data.password}
+                            onChange={handleChange}
+                            name='password'
                         />
                         <InputRightElement width='4.5rem'>
                             <Button h='1.75rem' size='sm' onClick={handleClick}>
