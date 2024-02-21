@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { Appcontext } from '../Usecontext/Parentcontext';
 import Cookies from 'js-cookie'
 
-function Login() {
+function Register() {
     const{login,isLogin}=useContext(Appcontext)
     const [show, setShow] = useState(false);
     const [data, isData] = useState({
@@ -14,7 +14,7 @@ function Login() {
         email: "",
         password: "",
     })
-    const URL = "http://localhost:3130/login"
+    const URL = "http://localhost:3130/register"
     const [errorMessage, setErrorMessage] = useState('');
     const Navigate = useNavigate()
 
@@ -39,7 +39,7 @@ function Login() {
         .then(res=>{console.log(res.data)
         Navigate('/')
         isLogin(!login)
-        sessionStorage.setItem('token', username)
+        // localStorage.setItem('token', res.data.token)
         console.log(res.data);
         Cookies.set('token', res.data.token, {expires:30})
         // storeTokenInCk(res.data.token)
@@ -64,9 +64,8 @@ function Login() {
             }
         });
     };
-
-    return (
-        <>
+  return (
+    <>
             <Navbar />
             <form onSubmit={handleSubmit}>
                 <FormControl>
@@ -96,7 +95,7 @@ function Login() {
                     </InputGroup>
                 </FormControl>
                 <Button mt={4} colorScheme='teal' type='submit'>
-                    Login
+                    Register
                 </Button>
                 {errorMessage && (
                     <FormErrorMessage mt={4} color='red.500'>
@@ -105,7 +104,7 @@ function Login() {
                 )}
             </form>
         </>
-    );
+  )
 }
 
-export default Login;
+export default Register

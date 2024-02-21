@@ -9,6 +9,7 @@ import Fetchdata from '../Pages/Fetchdata'
 import EditData from '../Pages/EditData'
 import Login from '../Pages/Login'
 import Logout from '../Pages/Logout'
+import Register from '../Pages/Register'
 
 function Linkings() {
   return (
@@ -21,6 +22,7 @@ function Linkings() {
         <Route path='/edit/:id' element={<EditData/>} />
         <Route path='/Login' element={<Login/>} />
         <Route path='/Logout' element={<Logout/>} />
+        <Route path='/Register' element={<Register/>} />
     </Routes>
   )
 }

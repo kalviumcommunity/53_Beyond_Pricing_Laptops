@@ -8,7 +8,9 @@ function Parentcontext({children}) {
 
     const LogoutUser=()=>{
         setToken("")
-        return Cookies.remove('token')
+        sessionStorage.clear()
+        Cookies.remove('token')
+
     }
   return (
     <Appcontext.Provider value={{login,isLogin,LogoutUser}}>
