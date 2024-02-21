@@ -27,9 +27,6 @@ function Fetchdata() {
                 setLoading(false);
             });
     }, []);
-    console.log(data);
-    console.log(response);
-    // console.log(selectedContinent);
     useEffect(() => {
         // axios.get("https://five3-beyond-pricing-laptops.onrender.com/Laptops")
         axios.get("http://localhost:3130/Laptops")
