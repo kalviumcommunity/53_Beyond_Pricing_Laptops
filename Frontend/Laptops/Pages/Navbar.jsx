@@ -15,7 +15,7 @@ function Navbar() {
             <div className="body">
                 <Stack spacing={8} direction="row">
                     <Link to={"/"}><Button colorScheme="blue">Home</Button></Link>
-                    <Link to={"/product"}>
+                    <Link to={"/data"}>
                         <Button variant="outline">Products</Button>
                     </Link>
                     <Input
@@ -44,6 +44,9 @@ function Navbar() {
                             </Link>
                             <Link to={'/Logout'}>
                                 <Button onClick={Log}>Logout</Button>                            
+                            </Link>
+                            <Link to={'/Register'}>
+                                <Button>Register</Button>                            
                             </Link>
                 </Stack>
                 <div className="hr"></div>
