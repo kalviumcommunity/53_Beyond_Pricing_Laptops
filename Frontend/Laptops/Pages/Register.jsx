@@ -14,7 +14,7 @@ function Register() {
         email: "",
         password: "",
     })
-    const URL = "http://localhost:3130/register"
+    const URL = "https://five3-beyond-pricing-laptops.onrender.com/register"
     const [errorMessage, setErrorMessage] = useState('');
     const Navigate = useNavigate()
 
