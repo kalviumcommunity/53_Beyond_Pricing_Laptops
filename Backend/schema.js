@@ -38,6 +38,9 @@ const LaptopDataSchema= new mongoose.Schema({
     },
     Review:{
         type:String,
+    },
+    username:{
+        type:String,
     }
 })
 

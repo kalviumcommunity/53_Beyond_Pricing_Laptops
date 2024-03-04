@@ -19,7 +19,7 @@ const Joi_schema= ((req,res,next)=>{
     if(error){
         res.status(400).send(error.details)
     }else{
-        res.send("data send successfully")
+        // res.send("data send successfully")
         next()
     }
 })
@@ -51,7 +51,7 @@ router.post('/register',async (req,res)=>{
 
 router.post('/login', async(req,res)=>{
     try {
-        const {email, password} = req.body
+        const {username, email, password} = req.body
         const userExist = await UsersModel.findOne({email})
         if(!userExist){
             return res.status(401).json("user not registered")
@@ -73,7 +73,14 @@ router.post('/login', async(req,res)=>{
 })
 
 
-
+router.get('/register', async(req,res)=>{
+    try {
+        const AllUsers = await UsersModel.find()
+        res.json({Users:AllUsers})
+    } catch (error) {
+        res.json(error)
+    }
+})
 
 
 router.get('/LaptopsData',(req,res)=>{
