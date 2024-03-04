@@ -14,7 +14,7 @@ function Login() {
         email: "",
         password: "",
     })
-    const URL = "http://localhost:3130/login"
+    const URL = "https://five3-beyond-pricing-laptops.onrender.com/login"
     const [errorMessage, setErrorMessage] = useState('');
     const Navigate = useNavigate()
 

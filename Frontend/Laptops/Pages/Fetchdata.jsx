@@ -12,7 +12,7 @@ function Fetchdata() {
     var URL1 ="http://localhost:3130/register" 
     var URL2= "http://localhost:3130/Laptops"
     useEffect(() => {
-        axios.get(URL1)
+        axios.get("https://five3-beyond-pricing-laptops.onrender.com/register")
             .then(res => {
                 if (res.data && res.data.Users && res.data.Users.length > 0) {
                     const usernames = res.data.Users.map(user => user.username);
@@ -29,8 +29,8 @@ function Fetchdata() {
             });
     }, []);
     useEffect(() => {
-        // axios.get("https://five3-beyond-pricing-laptops.onrender.com/Laptops")
-        axios.get(URL)
+        axios.get("https://five3-beyond-pricing-laptops.onrender.com/Laptops")
+        // axios.get("http://localhost:3130/Laptops")
         
             .then(res => {
                 setData(res.data.Product);

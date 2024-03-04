@@ -26,7 +26,7 @@ function FormCompo() {
     // axios.post("https://five3-beyond-pricing-laptops.onrender.com/Laptops", {
     //     Name, image, RAM_GB, ROM_GB, RAM_Type, ROM_Type, Battery_hrs, Operating_System, Price, Review, user_data
     //   })
-    axios.post("http://localhost:3130/Laptops", {
+    axios.post("https://five3-beyond-pricing-laptops.onrender.com/Laptops", {
         Name, image, RAM_GB, ROM_GB, RAM_Type, ROM_Type, Battery_hrs, Operating_System, Price, Review, username
       })
       .then(res => {
