@@ -55,3 +55,26 @@
     height: 450px;
     justify-content: space-between;
 }
+.button{
+    width: 150px;
+}
+@media only screen and (max-width:480px){
+    .body-img{
+        margin: 5% 5% 10% 2%;
+        border-radius: 10px;
+        width:270px;
+        height: 300px;
+    }
+    .body-img-laptop{
+        width: 200px;
+    }    
+    .LaptopsName{
+        font-size: 20px;
+        font-weight: 500;
+    }
+    .button{
+        width: 70px;
+        height: 30px !important;
+        font-size: 12px !important;
+    }
+}

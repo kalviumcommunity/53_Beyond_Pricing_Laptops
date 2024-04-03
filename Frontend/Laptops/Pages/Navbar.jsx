@@ -24,14 +24,14 @@ function Navbar() {
                         _placeholder={{ color: "inherit" }}
                         width="700px"
                     ></Input>
-                    <Button rightIcon={<MdCall />} colorScheme="blue" variant="outline">
+                    {/* <Button rightIcon={<MdCall />} colorScheme="blue" variant="outline">
                         contact us
-                    </Button>
-                    <Link to='/about'>
+                    </Button> */}
+                    {/* <Link to='/about'>
                         <Button colorScheme="pink" variant="solid">
                             About Us
                         </Button>
-                    </Link>
+                    </Link> */}
                     <Link to='/add'>
                         <Button colorScheme="yellow" variant="solid">
                             Add Data

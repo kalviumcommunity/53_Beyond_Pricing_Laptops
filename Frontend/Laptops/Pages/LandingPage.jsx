@@ -6,6 +6,7 @@ import './LandingPage.css'
 import images from '../Laptops_Images_data/ImageData'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import { Link } from 'react-router-dom'
 
 
 function LandingPage() {
@@ -49,7 +50,9 @@ const handleClick1=()=>{
           <div className='body-image-text'>
             <p className='LaptopsName'>{images[val].name}</p>
             <img className='body-img-laptop' src={images[val].img} alt="" />
-            <Button colorScheme='yellow' variant='solid' width="150px">See Details</Button>
+            <Link to='/data'>
+              <Button colorScheme='yellow' variant='solid' className='button'>See Details</Button>
+            </Link>
           </div>
         </div>
       </div>
