@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Navbar from './Navbar'
 import { Link } from 'react-router-dom'
+import './Fetchdata.css'
 
 function Fetchdata() {
     const [data, setData] = useState([])
@@ -66,12 +67,12 @@ function Fetchdata() {
                 <option key={username} value={username}>{username}</option>
             ))}
         </select>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gridGap: "25px", marginTop: "30px", marginLeft: "30px" }}>
+            <div className='box'>
             {data.filter(userdata => !selectedContinent || userdata.username === selectedContinent)
                 .map((e, index) => (
-                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", border: "1px solid black", borderRadius: "10px", width: "450px", height: "auto" }} key={index}>
-                        <img style={{ height: "300px", width: "300px" }} src={e.image} alt="" />
-                        <div style={{display:"flex", flexDirection:"column"}}>
+                    <div className='Product' key={index}>
+                        <img className='image' src={e.image} alt="" />
+                        <div className='ProductData'>
                             <h2><b>Price- ₹ {e.Price}</b></h2>
                             <li>{e.Name}</li>
                             <li>{e["RAM(GB)"] || e.RAM_GB} GB</li>
@@ -83,9 +84,9 @@ function Fetchdata() {
                             <li>{e.Review}</li>
                             <br />
                         </div>
-                        <div style={{display:"flex", justifyContent:"space-around", width:"300px"}}>
-                            <Link key={`edit-${e._id}`} to={`/edit/${e._id}`}> <button style={{ background: "yellow", border: "2px solid black", borderRadius: "6px" }}>Edit Data</button></Link>
-                            <button onClick={() => handleDelete(e._id)} style={{ color: "white", background: "red", border: "2px solid black", borderRadius: "6px" }}>DELETE</button>
+                        <div className='buttonDiv'>
+                            <Link key={`edit-${e._id}`} to={`/edit/${e._id}`}> <button className='button'>Edit Data</button></Link>
+       <button onClick={() => handleDelete(e._id)} style={{ color: "white", background: "red", border: "2px solid black", borderRadius: "6px" }}>DELETE</button>
                         </div>
                     </div>
                 ))}
